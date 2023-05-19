@@ -1,0 +1,21 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+<h3>Edit Symptoms</h3>
+<form action="/edit_symptoms_post" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="{{ data['symptomid'] }}">
+<table class="table table-bordered">
+  <tr>
+    <td>Disease Name</td>
+    <td><input type="text" name="textfield" id="textfield" value="{{ data['disease_name'] }}" class="form-control" readonly/></td>
+  </tr>
+  <tr>
+    <td>Symptoms</td>
+    <td><textarea name="textarea" id="textarea" cols="45" rows="5" class="form-control" >{{ data['symptom'] }}</textarea></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><input type="submit" name="button" id="button" value="Submit" class="btn btn-success" /></td>
+    </tr>
+</table>
+
+</form>
+{% endblock %}

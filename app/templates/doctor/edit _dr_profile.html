@@ -1,0 +1,125 @@
+{% extends "doctor/index.html" %}
+{% block body %}
+<form action="/edit_dr_profile_post" method="post" enctype="multipart/form-data">
+<table class="table table-bordered">
+  <tr>
+    <td>Name</td>
+    <td><input type="text" name="textfield" id="textfield" value="{{ data['doctorname'] }}" class="form-control" required /></td>
+  </tr>
+  <tr>
+    <td>D.O.B</td>
+    <td><input type="date" name="textfield1" id="textfield" value="{{ data['dob'] }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>Gender</td>
+    <td><p>
+      <label>
+        <input type="radio" name="RadioGroup1" value="Male" id="RadioGroup1_0" {% if data['gender']=='Male'%}checked="checked"{% endif %} />
+        Male</label>
+      <br />
+      <label>
+        <input type="radio" name="RadioGroup1" value="Female" id="RadioGroup1_1" {% if data['gender']=='Female'%}checked="checked"{% endif %} />
+        Female</label>
+      <br />
+      <label>
+        <input type="radio" name="RadioGroup1" value="Other" id="RadioGroup1_2" {% if data['gender']=='Other'%}checked="checked"{% endif %} />
+        Other</label>
+      <br />
+    </p></td>
+  </tr>
+  <tr>
+    <td>Photo</td>
+    <td><input type="file" name="fileField" id="fileField"   class="form-control" /><br>
+        <br><img src="{{ data['photo'] }}" height="100px" width="100px"></td>
+  </tr>
+  <tr>
+    <td>State</td>
+    <td><select name="select"  id="select" class="form-control" required >
+        <option value="" selected disabled hidden>select</option>
+        <option {% if data['state']=='Andhra Pradesh'%}selected="selected"{% endif %} class="form-control">Andhra Pradesh</option>
+        <option {% if data['state']=='Arunachal Pradesh'%}selected="selected"{% endif %} class="form-control">Arunachal Pradesh</option>
+        <option {% if data['state']=='Assam'%}selected="selected"{% endif %} class="form-control">Assam</option>
+        <option {% if data['state']=='Bihar'%}selected="selected"{% endif %} class="form-control">Bihar</option>
+        <option {% if data['state']=='Chattisgarh'%}selected="selected"{% endif %} class="form-control">Chattisgarh</option>
+        <option {% if data['state']=='Goa'%}selected="selected"{% endif %} class="form-control">Goa</option>
+        <option {% if data['state']=='Gujarat'%}selected="selected"{% endif %} class="form-control">Gujarat</option>
+        <option {% if data['state']=='Haryana'%}selected="selected"{% endif %} class="form-control">Haryana</option>
+        <option {% if data['state']=='Himachal Pradesh'%}selected="selected"{% endif %} class="form-control">Himachal Pradesh</option>
+        <option {% if data['state']=='Jharkhand'%}selected="selected"{% endif %} class="form-control">Jharkhand</option>
+        <option {% if data['state']=='Karnataka'%}selected="selected"{% endif %} class="form-control">Karnataka</option>
+        <option {% if data['state']=='Kerala'%}selected="selected"{% endif %} class="form-control">Kerala</option>
+        <option {% if data['state']=='Madhya Pradesh'%}selected="selected"{% endif %} class="form-control">Madhya Pradesh</option>
+        <option {% if data['state']=='Maharashtra'%}selected="selected"{% endif % class="form-control"}>Maharashtra</option>
+        <option {% if data['state']=='Manipur'%}selected="selected"{% endif %} class="form-control">Manipur</option>
+        <option {% if data['state']=='Meghalaya'%}selected="selected"{% endif %} class="form-control">Meghalaya</option>
+        <option {% if data['state']=='Mizoram'%}selected="selected"{% endif %} class="form-control">Mizoram</option>
+        <option {% if data['state']=='Nagaland'%}selected="selected"{% endif %} class="form-control">Nagaland</option>
+        <option {% if data['state']=='Odissa'%}selected="selected"{% endif %} class="form-control">Odissa</option>
+        <option {% if data['state']=='Punjab'%}selected="selected"{% endif %} class="form-control">Punjab</option>
+        <option {% if data['state']=='Rajasthan'%}selected="selected"{% endif %} class="form-control">Rajasthan</option>
+        <option {% if data['state']=='Sikkim'%}selected="selected"{% endif %} class="form-control">Sikkim</option>
+        <option {% if data['state']=='Tamil Nadu'%}selected="selected"{% endif %} class="form-control">Tamil Nadu</option>
+        <option {% if data['state']=='Telengana'%}selected="selected"{% endif %} class="form-control">Telengana</option>
+        <option {% if data['state']=='Tripura'%}selected="selected"{% endif %} class="form-control">Tripura</option>
+        <option {% if data['state']=='Uttarakhand'%}selected="selected"{% endif %} class="form-control">Uttarakhand</option>
+        <option {% if data['state']=='Uttar Pradesh'%}selected="selected"{% endif %} class="form-control">Uttar Pradesh</option>
+        <option {% if data['state']=='West Bengal'%}selected="selected"{% endif %} class="form-control">West Bengal</option>
+
+
+    </select></td>
+  </tr>
+  <tr>
+    <td>District</td>
+    <td><select name="select2" id="select2" class="form-control" required>
+        <option value="" selected disabled hidden>Select</option>
+        <option class="form-control">Kozhikode</option>
+        <option class="form-control">Kannur</option>
+        <option class="form-control">Vadakara/kadavathur</option>
+    </select></td>
+  </tr>
+  <tr>
+    <td>Pin</td>
+    <td><input type="text" name="textfield2" class="form-control" required id="textfield2" value="{{ data['pin'] }}"/></td>
+  </tr>
+  <tr>
+    <td>Post</td>
+    <td><input type="text" name="textfield3" class="form-control" required id="textfield3" value="{{ data['post'] }}" /></td>
+  </tr>
+  <tr>
+    <td>Place</td>
+    <td><input type="text" name="textfield4" id="textfield4" class="form-control" required value="{{ data['place'] }}"/></td>
+  </tr>
+  <tr>
+    <td>House</td>
+    <td><input type="text" name="textfield5" id="textfield5" class="form-control" required value="{{ data['house'] }}"/></td>
+  </tr>
+  <tr>
+    <td>Phone</td>
+    <td><input type="text" name="textfield6" id="textfield6"  value="{{ data['house'] }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><input type="text" name="textfield7" id="textfield7" value="{{ data['email'] }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>Qualification</td>
+    <td><textarea name="textarea" id="textarea" cols="45" rows="5" class="form-control" required>{{ data['qualification'] }} </textarea> </td>
+  </tr>
+  <tr>
+    <td>Experience</td>
+    <td><input type="text" name="textfield8" id="textfield8" value="{{ data['experience'] }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>Username</td>
+    <td><input type="text" name="textfield9" id="textfield9" value="{{ data['username'] }}" class="form-control" required/></td>
+  </tr>
+
+  <tr>
+    <td colspan="2" align="center"><input type="submit" name="button2" id="button2" value="Submit" class="btn btn-success"/></td>
+    </tr>
+</table>
+
+</form>
+
+
+{% endblock %}

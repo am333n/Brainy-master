@@ -1,0 +1,26 @@
+{% extends 'patient/index.html' %}
+{% block body %}
+<h3>View Complaint & Send Reply</h3>
+<form action="" method="post" enctype="multipart/form-data">
+<table class="table table-bordered">
+  <tr style="background-color: rgba(92,77,114,0.8);color: white">
+    <th width="50px">Sl.No</th>
+    <th>Date</th>
+    <th>Doctor Name</th>
+    <th>Complaint</th>
+    <th>Reply</th>
+    <th>Status</th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>&nbsp;{{ loop.index }}</td>
+    <td>{{ i['date'] }}</td>
+    <td>&nbsp;{{ i['doctorname'] }}</td>
+    <td>&nbsp;{{ i['complaint'] }}</td>
+    <td>&nbsp;{{ i['reply'] }}</td>
+    <td>&nbsp;{{ i['cmpstatus'] }}</td>
+  </tr> {% endfor %}
+</table>
+
+</form>
+{% endblock %}

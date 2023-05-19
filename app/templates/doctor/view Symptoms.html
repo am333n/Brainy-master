@@ -1,0 +1,34 @@
+{% extends "doctor/index.html" %}
+{% block body %}
+<h3> View Symptoms</h3>
+<form action="view_dr_symptoms_post" method="post" enctype="multipart/form-data">
+<table class="pull-left">
+  <tr>
+    <td><input name="textfield" type="text" class="form-control" required /></td>
+    <td><input name="" type="submit" value="search" class="btn btn-info"/></td>
+  </tr>
+</table>
+
+<br />
+<br />
+<br />
+
+<table class="table table-bordered">
+  <tr style="background-color: rgba(92,77,114,0.8);color: white">
+    <th width="50px">Sl.No.</th>
+    <th>Disease Name</th>
+    <th>Symptom</th>
+    
+  </tr>
+     {%for i in data%}
+  <tr>
+    <td>&nbsp;{{ loop.index }}</td>
+    <td>{{ i['disease_name'] }}</td>
+    <td>&nbsp;{{ i['symptom'] }}</td>
+ 
+  </tr>
+     {% endfor %}
+</table>
+
+</form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "patient/index.html" %}
+{% block body %}
+<h3>Send Feedback</h3>
+<form action="/send_fb_post" method="post" enctype="multipart/form-data">
+<table class="table table-bordered">
+  <tr>
+    <td>
+      <textarea name="textarea" id="textarea" cols="45" rows="5" class="form-control" required></textarea></td>
+  </tr>
+  <tr>
+    <td align="center"><input type="submit" name="button" id="button" value="Submit" class="btn btn-success"/></td>
+  </tr>
+</table>
+    <input type="hidden" value="{{ data['doctor_lid'] }}" id="ide" name="ide">
+    <input type="hidden" value="{{ data['appointmentid'] }}" id="appid" name="appid">
+
+</form>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "doctor/index.html" %}
+{% block body %}
+<form action="/upload_prescription" method="post" enctype="multipart/form-data">
+    <table class="table table-bordered"><input type="hidden" value="{{ data['appointmentid'] }}" name="id">
+        <tr>
+            <td>Username</td>
+            <td>{{ data['username'] }}</td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td>{{ data['date'] }}</td>
+        </tr>
+        <tr>
+            <td>time</td>
+            <td>{{ data['starttime'] }}-{{ data['endtime'] }}</td>
+        </tr>
+        <tr>
+            <td>Prescription</td>
+            <td><textarea name="textarea" id="textarea" cols="45" rows="5" class="form-control"></textarea></td>
+        </tr>
+        <tr>
+            <td>Findings</td>
+            <td><textarea name="textarea1" id="textarea1" cols="45" rows="5" class="form-control"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" name="button" id="button" value="Submit" class="btn btn-success" /></td>
+        </tr>
+    </table>
+</form>
+
+{% endblock %}

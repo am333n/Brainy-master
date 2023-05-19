@@ -1,0 +1,31 @@
+{% extends "patient/index.html" %}
+{% block body %}
+<h3>View Appointments</h3>
+<form action="" method="post" enctype="multipart/form-data">
+    <table class="table table-bordered">
+  <tr style="background-color: rgba(92,77,114,0.8);color: white">
+            <th width="50px">Sl.No</th>
+            <th>Username</th>
+            <th> Start Time</th>
+            <th>End Time</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th width="50px"></th>
+
+        </tr>
+        {% for i in data %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ i['doctorname'] }}</td>
+            <td>{{ i['starttime'] }}</td>
+            <td>{{ i['endtime'] }}</td>
+            <td>{{ i['date'] }}</td>
+            <td>{{ i['status'] }}</td>
+            <td><a href="/cancel_appointment/{{ i['appointmentid'] }}" onclick="return confirm('Do you wish to cancel your appointment')" class="btn btn-danger">Cancel</a></td>
+ <td><a href="/send_complaint/{{ i['doctor_lid'] }}"  class="btn btn-danger">send complaint</a></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+{% endblock %}

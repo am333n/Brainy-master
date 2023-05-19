@@ -1,0 +1,44 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+<h3>View Users</h3>
+
+<form action="/view_user_post" method="post" enctype="multipart/form-data">
+<table class="pull-left">
+  <tr>
+    <td><input name="textfield" type="text" class="form-control" required /></td>
+    <td><input name="" type="submit" value="search" class="btn btn-info"/></td>
+  </tr>
+</table>
+<br />
+<br />
+<table class="table table-bordered">
+  <tr style="background-color: rgba(92,77,114,0.8);color: white">
+    <th width="50px">Sl.No</th>
+    <th>Username</th>
+    <th>D.O.B</th>
+    <th>Gender</th>
+    <th>Photo</th>
+    <th>Address</th>
+    <th>House</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th width="50px"></th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ i['username'] }}</td>
+    <td >{{ i['dob'] }}</td>
+    <td>{{ i['gender'] }}</td>
+    <td><img src="{{ i['photo'] }}" height="100px" width="100px"> </td>
+    <td>{{ i['house'] }}</td>
+    <td>{{ i['place'] }}<br>{{ i['post'] }}<br>{{ i['pin'] }}<br>{{ i['district'] }}<br>{{ i['state'] }}</td>
+    <td>{{ i['phone'] }}</td>
+    <td>{{ i['email'] }}</td>
+    <td><a href="/reject_pt/{{ i['userid'] }} "onclick=" return confirm('Are you Sure?')" class="btn btn-danger">Reject</a></td>
+  </tr>
+     {% endfor %}
+</table>
+
+</form>
+{% endblock %}

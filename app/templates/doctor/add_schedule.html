@@ -1,0 +1,22 @@
+{% extends "doctor/index.html" %}
+{% block body %}
+<form action="/add_schedule_post" method="post" enctype="multipart/form-data">
+<table class="table table-bordered">
+    <tr>
+        <td>Date</td>
+        <td><input type="date" name="textfield" class="form-control" required></td>
+    </tr>
+    <tr>
+        <td>Start Time</td>
+        <td><input type="time" name="textfield2" class="form-control" required></td>
+    </tr>
+    <tr>
+         <td>End Time</td>
+        <td><input type="time" name="textfield3" class="form-control" required></td>
+    </tr>
+    <tr >
+        <td colspan="2" align="center"><input type="submit" value="submit" class="btn btn-success"></td>
+    </tr>
+</table>
+</form>
+{% endblock %}

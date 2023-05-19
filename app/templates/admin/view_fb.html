@@ -1,0 +1,39 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+<h3>View Feedback</h3>
+<form action="/view_fb_post" method="post" enctype="multipart/form-data">
+<table class="pull-left">
+  <tr>
+    <td>From Date</td>
+    <td><input type="date" name="textfield" id="textfield" class="form-control" required/></td>
+    <td>To Date</td>
+    <td><input type="date" name="textfield2" id="textfield2" class="form-control" required/></td>
+    <td><input type="submit" name="button" id="button" value="Submit" class="btn btn-info"/></td>
+  </tr>
+</table>
+<br />
+<br />
+<table class="table table-bordered">
+  <tr style="background-color: rgba(92,77,114,0.8);color: white">
+    <th width="50px">Sl.No</th>
+    <th>Date</th>
+    <th>Doctor Name</th>
+    <th>User Name</th>
+    <th>FeedBack</th>
+   
+  </tr>
+     {% for i in data %}
+  <tr>
+    <td>&nbsp;{{ loop.index }}</td>
+    <td>&nbsp;&nbsp;{{ i['date'] }}</td>
+    <td>&nbsp;{{ i['doctorname'] }}</td>
+    <td>&nbsp;{{ i['username'] }}</td>
+    <td>&nbsp;{{ i['feedback'] }}</td>
+   
+  </tr>
+     {% endfor %}
+</table>
+
+</form>
+
+{% endblock %}

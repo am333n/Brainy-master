@@ -1,0 +1,43 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+<h3>Symptom Management</h3>
+<form action="/symptom_mgmt_post" method="post" enctype="multipart/form-data">
+<table class="pull-left">
+  <tr>
+    <td><input name="textfield" type="text" class="form-control" /></td>
+    <td><input name="" type="submit" value="search" class="btn btn-info"/></td>
+  </tr>
+</table>
+<br>
+<br>
+<table class="table table-bordered">
+  <tr>
+    <td align="center"><a href="/add_symptoms" class="btn btn-primary">Add Symptoms</a></td>
+  </tr>
+</table>
+
+<br />
+<br />
+<br />
+
+<table class="table table-bordered">
+  <tr style="background-color: rgba(92,77,114,0.8);color: white">
+    <td width="50px">Sl.No.</td>
+    <td>Disease Name</td>
+    <td>Symptom</td>
+    <td width="50px"></td>
+    <td width="50px"></td>
+  </tr>
+    {%for i in data%}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ i['disease_name'] }}</td>
+    <td>{{ i['symptom'] }}</td>
+    <td><a href="/edit_symptoms/{{ i['symptomid'] }}" class="btn btn-primary">Edit</a></td>
+    <td><a href="/delete_symptom/{{i['symptomid']}}" onclick="return confirm('Do you want to delete this symptom')" class="btn btn-danger">Delete</a></td>
+  </tr>
+    {% endfor %}
+</table>
+
+</form>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "doctor/index.html" %}
+{% block body %}
+<h3>View Appointments</h3>
+<div style="text-align: right">
+<a href="/view_pending" class="btn btn-info">Show only Pending Patients</a>
+</div>
+<form action="" method="post" enctype="multipart/form-data">
+    <table  class="table table-bordered">
+  <tr style="background-color: rgba(92,77,114,0.8);color: white">
+            <th width="50px">Sl.No</th>
+            <th>Username</th>
+            <th>Time</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th width="50px"></th>
+            <th width="50px"></th>
+            <th width="50px"></th>
+
+        </tr>
+        {% for i in data %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ i['username'] }}</td>
+            <td>{{ i['starttime'] }}-{{ i['endtime'] }}</td>
+            <td>{{ i['date'] }}</td>
+            <td>{{ i['status'] }}</td>
+            <td><a href="/reject_appointment/{{ i['appointmentid'] }}" class="btn btn-danger">Reject</a>
+            {% if i['status']=='Pending' %}<a href="/update_status/{{ i['appointmentid'] }}" class="btn btn-primary" onclick="return confirm('Have you Consulted the Patient')">Update Status</a>{% else %}{% endif %}</td>
+{#            <td><a href="/update_status/{{ i['appointmentid'] }}">Update Status</a></td>#}
+
+            <td><a href="/load_prescription/{{ i['appointmentid'] }}" class="btn btn-primary">Prescription</a></td>
+            <td>{% if i['status']=='Consulted' %}<a href="/add_prescription/{{ i['appointmentid'] }}" class="btn btn-primary">Prescribe</a>{% else %}{% endif %} </td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+
+{% endblock %}

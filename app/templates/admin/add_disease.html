@@ -1,0 +1,20 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+<h3>add diseases</h3>
+<form action="/add_disease_post" method="post" enctype="multipart/form-data">
+<table class="table table-bordered">
+  <tr>
+    <td>Disease Name</td>
+    <td><input type="text" name="textfield" id="textfield" class="form-control" required /></td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td><textarea name="textarea" id="textarea" cols="45" rows="5" class="form-control" required></textarea></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><input type="submit" name="button" class="btn btn-success" id="button" value="Submit" /></td>
+    </tr>
+</table>
+
+</form>
+{% endblock %}

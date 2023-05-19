@@ -1,0 +1,48 @@
+{% extends "doctor/index.html" %}
+{% block body %}
+<h3>Schedule Manager</h3>
+<form action="" method="post" enctype="multipart/form-data">
+    <br>
+    <br>
+<table class="pull-left">
+  <tr>
+    <td>From Date</td>
+    <td><input type="date" name="textfield" id="textfield" class="form-control" required/></td>
+    <td>To Date</td>
+    <td><input type="date" name="textfield2" id="textfield2" class="form-control" required/></td>
+    <td><input type="submit" name="button" id="button" value="Submit" class="btn btn-info"/></td>
+  </tr>
+</table>
+<br><br>
+<table class="table table-bordered">
+    <tr><td align="center"><a href="/add_schedule" class="btn btn-primary">Add Schedule</a></td></tr>
+
+</table>
+    <br />
+<br />
+
+<table class="table table-bordered">
+  <tr style="background-color: rgba(92,77,114,0.8);color: white">
+    <th width="50px">Sl.no</th>
+    <th>Date</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+    <th width="50px"></th>
+    <th width="50px"></th>
+
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>&nbsp;{{ loop.index }}</td>
+    <td>{{ i['date'] }}</td>
+    <td>&nbsp;{{ i['starttime'] }}</td>
+    <td>&nbsp;{{ i['endtime'] }}</td>
+    <td><a href="/edit_schedule/{{ i['scheduleid'] }}" class="btn btn-primary">Edit</a></td>
+    <td><a href="/delete_schedule/{{ i['scheduleid'] }}" onclick="return confirm('are you sure want delete?')" class="btn btn-danger">delete</a></td>
+
+  </tr>
+    {% endfor %}
+</table>
+
+</form>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "patient/index.html" %}
+{% block body %}
+<h3> View Doctor Schedule</h3>
+<form action="" method="post" enctype="multipart/form-data">
+<table class="table table-bordered">
+  <tr>
+    <td>From Date</td>
+    <td><input type="date" name="textfield" id="textfield" class="form-control" required/></td>
+    <td>To Date</td>
+    <td><input type="date" name="textfield2" id="textfield2" class="form-control" required/></td>
+    <td><input type="submit" name="button" id="button" value="Submit" class="btn btn-success"/></td>
+  </tr>
+</table>
+<br />
+<br /><table class="table table-bordered">
+  <tr style="background-color: rgba(92,77,114,0.8);color: white">
+      <th width="50px">S.no</th>
+    <th>Doctor Name</th>
+    <th>Date</th>
+    <th>Start</th>
+    <th>End</th>
+    <th width="50px"></th>
+  </tr>
+     {% for i in data %}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td>&nbsp;{{ i['doctorname'] }}</td>
+    <td>&nbsp;{{ i['date'] }}</td>
+    <td>&nbsp;{{ i['starttime'] }}</td>
+    <td>&nbsp;{{ i['endtime'] }}</td>
+    <td><a href="/make_appointment/{{ i['scheduleid'] }}" onclick="confirm('Make appointment?')" class="btn btn-primary">Make Appointment</a></td>
+  </tr>
+    {% endfor %}
+</table>
+
+</form>
+{% endblock %}

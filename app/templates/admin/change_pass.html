@@ -1,0 +1,28 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+<h3>Change Password</h3>
+<form action="/change_password_post" method="post" enctype="multipart/form-data">
+<table class="table table-bordered">
+
+  <tr>
+    <th width="300px">Current Password</th>
+    <td>
+      <input type="text" name="textfield2" id="textfield2" class="form-control" required /></td>
+  </tr>
+  <tr>
+    <th width="300px">New Password</th>
+    <td>
+      <input type="text" name="textfield3" id="textfield3" class="form-control" required /></td>
+  </tr>
+  <tr>
+    <th width="300px">Confirm Password</th>
+    <td>
+      <input type="text" name="textfield4" id="textfield4" class="form-control" required/></td>
+  </tr>
+  <tr>
+      <td></td>
+    <td><input type="submit" name="button" id="button" value="Submit" class="btn btn-success"/></td>
+  </tr>
+</table>
+</form>
+{% endblock %}

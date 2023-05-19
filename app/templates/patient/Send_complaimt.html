@@ -1,0 +1,21 @@
+{% extends "patient/index.html" %}
+{% block body %}
+<h3>Send Complaint & View Reply</h3>
+<form action="/send_complaint_post" method="post" enctype="multipart/form-data">
+<table class="table table-bordered">
+  <tr><input type="hidden"value="{{ id }}" name="id">
+    <td>Complaint</td>
+    <td><label for="textarea"></label>
+      <textarea name="textarea" id="textarea" cols="45" rows="5" class="form-control" required></textarea></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><input type="submit" name="button" id="button" value="Submit" class="btn btn-success" /></td>
+    </tr>
+  <tr>
+    <td colspan="2" align="center"><a href="#">View Reply</a></td>
+    </tr>
+</table>
+
+
+</form>
+{% endblock %}

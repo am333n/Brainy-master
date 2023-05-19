@@ -1,0 +1,24 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+<h3>Add Symptoms</h3>
+<form action="/add_symptoms_post" method="post" enctype="multipart/form-data">
+<table class="table table-bordered">
+  <tr>
+    <td>Disease</td>
+    <td><select name="select" id="select" class="form-control" required>
+        {% for i in data %}
+        <option value="{{ i['diseaseid'] }}"> {{ i['disease_name'] }}</option>
+        {% endfor %}
+    </select></td>
+  </tr>
+  <tr>
+    <td>Symptom</td>
+    <td><textarea name="textarea" id="textarea" cols="45" rows="5" class="form-control" required></textarea></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><input type="submit" class="btn btn-success" name="button" id="button" value="Submit" /></td>
+    </tr>
+</table>
+
+</form>
+{% endblock %}

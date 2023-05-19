@@ -1,0 +1,31 @@
+{% extends "patient/index.html" %}
+{% block body %}
+<form action="" method="post" enctype="multipart/form-data">
+    <table class="table table-bordered">
+        <tr>
+            <td>Username</td>
+            <td>{{ data['username'] }}</td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td>{{ data['date'] }}</td>
+        </tr>
+        <tr>
+            <td>Doctor</td>
+            <td>{{ data['doctorname'] }}</td>
+        </tr>
+        <tr>
+            <td>Prescription</td>
+            <td>{{ data['prescription'] }}</td>
+        </tr>
+        <tr>
+            <td>Findings</td>
+            <td>{{ data['Findings'] }}</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center" ><a download href class="btn btn-primary">Download</a></td>
+        </tr>
+    </table>
+</form>
+
+{% endblock %}

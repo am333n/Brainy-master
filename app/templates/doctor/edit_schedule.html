@@ -1,0 +1,23 @@
+{% extends "doctor/index.html" %}
+{% block body %}
+<form action="/edit_schedule_post" method="post" enctype="multipart/form-data">
+<table class="table table-bordered">
+    <input type="hidden" value="{{ data['scheduleid'] }}" name="hidden">
+    <tr>
+        <td>Date</td>
+        <td><input type="date" name="textfield" value="{{ data['date'] }}" class="form-control" required></td>
+    </tr>
+    <tr>
+        <td>Start Time</td>
+        <td><input type="time" class="form-control" required name="textfield2" value="{{ data['starttime'] }}"></td>
+    </tr>
+    <tr>
+         <td>End Time</td>
+        <td><input type="time" name="textfield3" class="form-control" required value="{{ data['endtime'] }}"></td>
+    </tr>
+    <tr >
+        <td colspan="2" align="center"><input type="submit" value="submit" class="btn btn-success"></td>
+    </tr>
+</table>
+</form>
+{% endblock %}

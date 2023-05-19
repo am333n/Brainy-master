@@ -1,0 +1,60 @@
+{% extends "patient/index.html" %}
+{% block body %}
+<h3>View Profile</h3>
+<form action="" method="post" enctype="multipart/form-data">
+<table class="table table-bordered">
+  <tr>
+    <th>Username</th>
+    <td><label for="textfield">{{ data['username'] }}</label></td>
+  </tr>
+  <tr>
+    <th>D.O.B</th>
+    <td><label for="textfield2">{{ data['dob'] }}</label></td>
+  </tr>
+  <tr>
+    <th>Gender</th>
+    <td>{{ data['gender'] }}</td>
+  </tr>
+  <tr>
+    <th>Photo</th>
+    <td>&nbsp;<img src="{{ data['photo'] }}" height="100px" width="100px"></td>
+  </tr>
+  <tr>
+    <th>State</th>
+    <td>{{ data['state'] }}</td>
+  </tr>
+  <tr>
+    <th>District</th>
+    <td>{{ data['district'] }}</td>
+  </tr>
+  <tr>
+    <th>Pin</th>
+    <td>{{ data['pin'] }}</td>
+  </tr>
+  <tr>
+    <th>Post</th>
+    <td>{{ data['post'] }}</td>
+  </tr>
+  <tr>
+    <th>Place</th>
+    <td>&nbsp;{{ data['place'] }}</td>
+  </tr>
+  <tr>
+    <th>House</th>
+    <td>{{ data['house'] }}</td>
+  </tr>
+  <tr>
+    <th>Phone</th>
+    <td>&nbsp;+91 {{ data['phone'] }}</td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td>{{ data['email'] }}</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><a href="/edit_pt_profile" class="btn btn-primary">Edit</a></td>
+    </tr>
+</table>
+</form>
+
+{% endblock %}

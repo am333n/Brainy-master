@@ -1,0 +1,83 @@
+{% extends "doctor/index.html" %}
+{% block body %}
+<h1>View Profile</h1>
+<form action="" method="post" enctype="multipart/form-data">
+
+<table class="table table-bordered">
+    <tr>
+        <td><a href="/dr_change_pass">Change Password</a></td>
+    </tr>
+</table>
+
+<table class="table table-bordered">
+
+  <tr>
+    <td>Name</td>
+    <td>{{ data['doctorname'] }}</td>
+  </tr>
+  <tr>
+    <td>D.O.B</td>
+    <td>{{ data['dob'] }}</td>
+  </tr>
+  <tr>
+    <td>Gender</td>
+    <td>{{ data['gender'] }}<br />
+      <br /></td>
+  </tr>
+  <tr>
+    <td>Photo</td>
+    <td>&nbsp;<img src="{{ data['photo'] }}" height="100px" width="100px"> </td>
+  </tr>
+  <tr>
+    <td>State</td>
+    <td>&nbsp;{{ data['state'] }}</td>
+  </tr>
+  <tr>
+    <td>District</td>
+    <td>&nbsp;{{ data['district'] }}</td>
+  </tr>
+  <tr>
+    <td>Pin</td>
+    <td>&nbsp;{{ data['pin'] }}</td>
+  </tr>
+  <tr>
+    <td>Post</td>
+    <td>{{ data['post'] }}</td>
+  </tr>
+  <tr>
+    <td>Place</td>
+    <td>&nbsp;{{ data['place'] }}</td>
+  </tr>
+  <tr>
+    <td>House</td>
+    <td>&nbsp;{{ data['house'] }}</td>
+  </tr>
+  <tr>
+    <td>Phone</td>
+    <td>&nbsp;+91 {{ data['phone'] }}</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>&nbsp;{{ data['email'] }}</td>
+  </tr>
+  <tr>
+    <td>Qualification</td>
+    <td>&nbsp;{{ data['qualification'] }}</td>
+  </tr>
+  <tr>
+    <td>Experience</td>
+    <td>&nbsp;{{ data['experience'] }}</td>
+  </tr>
+  <tr>
+    <td>Username</td>
+    <td>{{ data['username'] }}</td>
+  </tr>
+
+  <tr>
+    <td colspan="2" align="center"><a href="/edit_dr_profile" class="btn btn-info">Edit</a> </td>
+
+    </tr>
+</table>
+
+</form>
+{% endblock %}
